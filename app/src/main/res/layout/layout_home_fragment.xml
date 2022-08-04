@@ -5,22 +5,47 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-   <com.example.ejerciciotcnicorappi.movies.view.widgets.MoviessCarousel
-       android:id="@+id/upcoming_carousel"
+   <ScrollView
        android:layout_width="match_parent"
-       android:layout_height="wrap_content"
+       android:layout_height="match_parent"
        android:layout_marginBottom="24dp"
        android:layout_marginTop="24dp"
        app:layout_constraintTop_toTopOf="parent"
-       app:layout_constraintStart_toStartOf="parent"/>
+       app:layout_constraintStart_toStartOf="parent">
 
-<com.example.ejerciciotcnicorappi.movies.view.widgets.MoviessCarousel
-       android:id="@+id/top_rated_carousel"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:layout_marginBottom="24dp"
-       android:layout_marginTop="24dp"
-       app:layout_constraintTop_toBottomOf="@id/upcoming_carousel"
-       app:layout_constraintStart_toStartOf="parent"/>
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="vertical" >
+
+         <com.example.ejerciciotcnicorappi.movies.view.widgets.MoviessCarousel
+             android:id="@+id/upcoming_carousel"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginBottom="24dp"
+             android:layout_marginTop="24dp"
+             app:layout_constraintTop_toTopOf="parent"
+             app:layout_constraintStart_toStartOf="parent"/>
+
+         <com.example.ejerciciotcnicorappi.movies.view.widgets.MoviessCarousel
+             android:id="@+id/top_rated_carousel"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginBottom="24dp"
+             android:layout_marginTop="24dp"
+             app:layout_constraintTop_toBottomOf="@id/upcoming_carousel"
+             app:layout_constraintStart_toStartOf="parent"/>
+
+         <com.example.ejerciciotcnicorappi.movies.view.widgets.MoviessCarousel
+             android:id="@+id/recomended_carousel"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginBottom="24dp"
+             android:layout_marginTop="24dp"
+             app:layout_constraintTop_toBottomOf="@id/top_rated_carousel"
+             app:layout_constraintStart_toStartOf="parent"/>
+
+      </LinearLayout>
+   </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

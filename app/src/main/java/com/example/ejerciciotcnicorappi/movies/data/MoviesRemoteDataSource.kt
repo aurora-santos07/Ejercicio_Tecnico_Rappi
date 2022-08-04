@@ -9,4 +9,7 @@ class MoviesRemoteDataSource (private val moviesRetrofitService: MoviesRetrofitS
 
     fun getTopRatedMoviesList(apiKey: String, language: String) =
         moviesRetrofitService.getTopRatedList(apiKey, language)
+
+    fun getRecomendedMoviesList(movieId: Int, apiKey: String, language: String) =
+        moviesRetrofitService.getRecomendedList(movieId, apiKey, language)
 }

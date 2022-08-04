@@ -13,6 +13,7 @@ import com.example.ejerciciotcnicorappi.databinding.LayoutHomeFragmentBinding
 import com.example.ejerciciotcnicorappi.movies.view.StateData
 import com.example.ejerciciotcnicorappi.movies.view.models.MovieUI
 import com.example.ejerciciotcnicorappi.movies.view.viewModel.HomeViewModel
+import com.example.ejerciciotcnicorappi.movies.view.widgets.MoviessCarousel
 import com.google.android.material.snackbar.Snackbar
 import javax.inject.Inject
 
@@ -48,6 +49,7 @@ class HomeFragment: Fragment(R.layout.layout_home_fragment) {
         homeViewModel = ViewModelProvider(this, viewModelFactory)[HomeViewModel::class.java]
         homeViewModel.upcomingMoviesList.observe(this, Observer { handleUpcomingList(it)})
         homeViewModel.topRatedMoviesList.observe(this, { handleTopRatedList(it)})
+        homeViewModel.recomendedMoviesList.observe(this, {handleRecomendedList(it)})
     }
 
     fun handleUpcomingList(stateData: StateData){
@@ -80,14 +82,38 @@ class HomeFragment: Fragment(R.layout.layout_home_fragment) {
         }
     }
 
-    fun initUpcomingCarousel(mutableList: MutableList<MovieUI>){
-        binding.upcomingCarousel.setMoviesList(mutableList, {})
-        binding.upcomingCarousel.setTitle(getString(R.string.upcoming_title))
+    fun handleRecomendedList(stateData: StateData){
+        when (stateData){
+            is StateData.Success ->{
+                val response = stateData.responseTo<MutableList<MovieUI>>()
+                initRecomendedCarousel(response)
+            }
+            is StateData.Error ->{
+                Snackbar.make(binding.root, R.string.generic_error, Snackbar.LENGTH_SHORT).show()
+            }
+            is StateData.Loading ->{
+
+            }
+        }
     }
 
-    fun initTopRatedCarousel(mutableList: MutableList<MovieUI>){
-        binding.topRatedCarousel.setMoviesList(mutableList, {})
-        binding.topRatedCarousel.setTitle(getString(R.string.top_rated_title))
+    fun initUpcomingCarousel(mutableList: MutableList<MovieUI>) = binding.run{
+        upcomingCarousel.initRecyclerView()
+        upcomingCarousel.setMoviesList(mutableList, {})
+        upcomingCarousel.setTitle(getString(R.string.upcoming_title))
+    }
+
+    fun initTopRatedCarousel(mutableList: MutableList<MovieUI>) = binding.run{
+        topRatedCarousel.initRecyclerView()
+        topRatedCarousel.setMoviesList(mutableList, {})
+        topRatedCarousel.setTitle(getString(R.string.top_rated_title))
+    }
+
+    fun initRecomendedCarousel(mutableList: MutableList<MovieUI>) = binding.run {
+        recomendedCarousel.viewType = MoviessCarousel.TYPE_LAYOUT_GRID
+        recomendedCarousel.initRecyclerView()
+        recomendedCarousel.setMoviesList(mutableList, {})
+        recomendedCarousel.setTitle(getString(R.string.recommended_title))
     }
 
     companion object{

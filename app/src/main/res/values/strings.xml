@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Ejercicio Técnico Rappi</string>
-    <string name="generic_error">Ups! An error ocurred, please try again.</string>
+    <string name="generic_error">Ups! Ocurrió un error, intenta de nuevo.</string>
     <string name="upcoming_title">Próximos estrenos</string>
     <string name="top_rated_title">Tendencia</string>
+    <string name="recommended_title">Recomendados para ti</string>
 </resources>
