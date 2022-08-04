@@ -24,7 +24,7 @@ data class Dates(
     @SerializedName("minimum") var minimum : String? = null
 )
 
-data class UpcomingMoviesResponse(
+data class MoviesResponse(
     @SerializedName("dates" ) var dates: Dates? = Dates(),
     @SerializedName("page") var page : Int? = null,
     @SerializedName("results" ) var results: ArrayList<Results> = arrayListOf(),

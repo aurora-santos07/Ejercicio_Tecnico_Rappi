@@ -1,10 +1,10 @@
-package com.example.ejerciciotcnicorappi.view.widgets
+package com.example.ejerciciotcnicorappi.movies.view.widgets
 
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ejerciciotcnicorappi.databinding.LayoutMovieItemBinding
-import com.example.ejerciciotcnicorappi.view.URL_IMAGES
-import com.example.ejerciciotcnicorappi.view.extensions.setImageByUrl
-import com.example.ejerciciotcnicorappi.view.models.MovieUI
+import com.example.ejerciciotcnicorappi.movies.view.URL_IMAGES
+import com.example.ejerciciotcnicorappi.movies.view.extensions.setImageByUrl
+import com.example.ejerciciotcnicorappi.movies.view.models.MovieUI
 
 class MovieCarouselViewHolder(val binding: LayoutMovieItemBinding):
     RecyclerView.ViewHolder(binding.root) {

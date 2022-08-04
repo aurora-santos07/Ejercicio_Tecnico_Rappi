@@ -1,4 +1,4 @@
-package com.example.ejerciciotcnicorappi.view.extensions
+package com.example.ejerciciotcnicorappi.movies.view.extensions
 
 import android.widget.ImageView
 import com.bumptech.glide.Glide

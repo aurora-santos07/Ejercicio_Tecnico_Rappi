@@ -1,14 +1,14 @@
-package com.example.ejerciciotcnicorappi.view.widgets
+package com.example.ejerciciotcnicorappi.movies.view.widgets
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ejerciciotcnicorappi.databinding.LayoutMovieItemBinding
-import com.example.ejerciciotcnicorappi.view.models.MovieUI
+import com.example.ejerciciotcnicorappi.movies.view.models.MovieUI
 
 class MovieCarouselAdapter() : RecyclerView.Adapter<MovieCarouselViewHolder>(){
 
-    private lateinit var moviesList: MutableList<MovieUI>
+    private val moviesList = mutableListOf<MovieUI>()
     var onItemSelectedListener: ((String) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =

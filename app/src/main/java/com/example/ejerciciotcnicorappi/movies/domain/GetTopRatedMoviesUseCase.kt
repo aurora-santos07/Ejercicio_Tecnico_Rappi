@@ -3,7 +3,7 @@ package com.example.ejerciciotcnicorappi.movies.domain
 import com.example.ejerciciotcnicorappi.BuildConfig
 import com.example.ejerciciotcnicorappi.movies.data.MoviesRepository
 
-class GetUpcomingMoviesUseCase (private  val repository: MoviesRepository){
+class GetTopRatedMoviesUseCase (private  val repository: MoviesRepository){
 
-    fun getUpcomingMoviesList() = repository.getUpcomingMoviesList(BuildConfig.API_KEY_TMDB, "es-MX")
+    fun getTopRatedMoviesList() = repository.getTopRatedMoviesList(BuildConfig.API_KEY_TMDB, "es-MX")
 }
