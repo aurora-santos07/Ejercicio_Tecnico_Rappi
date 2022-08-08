@@ -1,5 +1,6 @@
 package com.example.ejerciciotcnicorappi.movies.data.remote
 
+import com.example.ejerciciotcnicorappi.movies.data.MovieDetailResponse
 import com.example.ejerciciotcnicorappi.movies.data.MoviesResponse
 import io.reactivex.rxjava3.core.Single
 import retrofit2.http.GET
@@ -20,4 +21,10 @@ interface MoviesRetrofitService {
     fun getRecomendedList(@Path(ApiPath.MOVIE_ID) movieId: Int,
                           @Query(ApiPath.API_KEY) apiKey: String,
                           @Query(ApiPath.LANGUAGE) language: String) : Single<MoviesResponse>
+
+    @GET(EndPointApi.MOVIE_DETAIL)
+    fun getDetail(@Path(ApiPath.MOVIE_ID) movieId: Int,
+                  @Query(ApiPath.API_KEY) apiKey: String,
+                  @Query(ApiPath.LANGUAGE) language: String) : Single<MovieDetailResponse>
+
 }

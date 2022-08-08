@@ -10,6 +10,7 @@ object EndPointApi {
     const val TOP_RATED_LIST = "$MOVIE$TOP_RATED/"
     const val UPCOMING_LIST = "$MOVIE$UPCOMING/"
     const val RECOMENDED_LIST = "$MOVIE{$MOVIE_ID}/$RECOMENDATIONS"
+    const val MOVIE_DETAIL = "$MOVIE{$MOVIE_ID}"
 }
 
 object ApiMethods{

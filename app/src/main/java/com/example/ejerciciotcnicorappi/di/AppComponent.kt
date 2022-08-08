@@ -6,6 +6,7 @@ import com.example.ejerciciotcnicorappi.di.network.NetworkModule
 import com.example.ejerciciotcnicorappi.di.viewmodel.ViewModelModule
 import com.example.ejerciciotcnicorappi.movies.view.MainActivity
 import com.example.ejerciciotcnicorappi.movies.view.fragments.HomeFragment
+import com.example.ejerciciotcnicorappi.movies.view.fragments.MovieDetailFragment
 import dagger.Component
 import javax.inject.Singleton
 
@@ -20,5 +21,6 @@ interface AppComponent {
     fun inject(app: App)
     fun inject(mainActivity: MainActivity)
     fun inject(homeFragment: HomeFragment)
+    fun inject(movieDetailFragment: MovieDetailFragment)
 
 }

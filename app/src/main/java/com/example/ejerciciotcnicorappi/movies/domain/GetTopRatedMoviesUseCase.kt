@@ -5,5 +5,5 @@ import com.example.ejerciciotcnicorappi.movies.data.MoviesRepository
 
 class GetTopRatedMoviesUseCase (private  val repository: MoviesRepository){
 
-    fun getTopRatedMoviesList() = repository.getTopRatedMoviesList(BuildConfig.API_KEY_TMDB, "es-MX")
+    fun getTopRatedMoviesList() = repository.getTopRatedMoviesList(BuildConfig.API_KEY_TMDB, DEFAULT_LANGUAGE)
 }

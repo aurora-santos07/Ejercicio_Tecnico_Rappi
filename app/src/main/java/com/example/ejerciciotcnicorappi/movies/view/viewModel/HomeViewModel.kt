@@ -80,7 +80,7 @@ class HomeViewModel @Inject constructor(
         compositeDisposable.add(composite)
     }
 
-    fun mapResponseToMovieUI(movieResponse: MoviesResponse): MutableList<MovieUI>{
+    private fun mapResponseToMovieUI(movieResponse: MoviesResponse): MutableList<MovieUI>{
         val movieTopUIList= mutableListOf<MovieUI>()
         movieResponse.results.forEach {
             var movieUI = MovieUI(it.id, it.posterPath)
@@ -90,27 +90,27 @@ class HomeViewModel @Inject constructor(
     }
 
 
-    fun getUpcomingListSuccess(mutableList: MutableList<MovieUI>){
+    private fun getUpcomingListSuccess(mutableList: MutableList<MovieUI>){
         _upcomingMoviesList.value = StateData.Success(mutableList)
     }
 
-    fun getUpcomingListError(throwable: Throwable){
+    private fun getUpcomingListError(throwable: Throwable){
         _upcomingMoviesList.value = StateData.Error(throwable)
     }
 
-    fun getTopRatedListSuccess(mutableList: MutableList<MovieUI>){
+    private fun getTopRatedListSuccess(mutableList: MutableList<MovieUI>){
         _topRatedMoviesList.value = StateData.Success(mutableList)
     }
 
-    fun getTopRatedListError(throwable: Throwable){
+    private fun getTopRatedListError(throwable: Throwable){
         _topRatedMoviesList.value = StateData.Error(throwable)
     }
 
-    fun getRecomendedListSuccess(mutableList: MutableList<MovieUI>){
+    private fun getRecomendedListSuccess(mutableList: MutableList<MovieUI>){
         _recomendedMoviesList.value = StateData.Success(mutableList)
     }
 
-    fun getRecomendedListError(throwable: Throwable){
+    private fun getRecomendedListError(throwable: Throwable){
         _recomendedMoviesList.value = StateData.Error(throwable)
     }
 

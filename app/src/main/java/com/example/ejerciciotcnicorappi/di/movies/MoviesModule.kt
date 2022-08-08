@@ -3,6 +3,7 @@ package com.example.ejerciciotcnicorappi.di.movies
 import com.example.ejerciciotcnicorappi.movies.data.MoviesRemoteDataSource
 import com.example.ejerciciotcnicorappi.movies.data.MoviesRepository
 import com.example.ejerciciotcnicorappi.movies.data.remote.MoviesRetrofitService
+import com.example.ejerciciotcnicorappi.movies.domain.GetMovieDetailUseCase
 import com.example.ejerciciotcnicorappi.movies.domain.GetRecomendedMoviesUseCase
 import com.example.ejerciciotcnicorappi.movies.domain.GetTopRatedMoviesUseCase
 import com.example.ejerciciotcnicorappi.movies.domain.GetUpcomingMoviesUseCase
@@ -40,4 +41,8 @@ class MoviesModule {
     @Provides
         fun provideRecomendedMoviesUseCase(moviesRepository: MoviesRepository) =
         GetRecomendedMoviesUseCase(moviesRepository)
+
+    @Provides
+    fun provideMovieDetailUserCase(moviesRepository: MoviesRepository) =
+        GetMovieDetailUseCase(moviesRepository)
 }

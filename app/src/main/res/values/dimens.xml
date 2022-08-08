@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="detail_text_size">36dp</dimen>
+    <dimen name="title_detail_text_size">60dp</dimen>
+    <dimen name="description_detail_text_size">50dp</dimen>
+    <dimen name="button_detail_text_size">48dp</dimen>
+    <dimen name="carousel_title_text_size">22dp</dimen>
+    <dimen name="margin_small">12dp</dimen>
+    <dimen name="margin_medium">24dp</dimen>
+    <dimen name="margin_large">32dp</dimen>
+    <dimen name="width_iv_carousel">160dp</dimen>
+
+</resources>

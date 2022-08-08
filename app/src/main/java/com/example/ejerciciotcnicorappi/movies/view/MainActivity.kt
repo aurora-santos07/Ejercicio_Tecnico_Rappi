@@ -11,7 +11,6 @@ import com.example.ejerciciotcnicorappi.movies.view.fragments.HomeFragment
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private val homeFragment by lazy {HomeFragment.newInstance()}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,7 +18,6 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
         injectDependency()
-        inTransaction { replace(R.id.main_container, homeFragment) }
     }
 
     private fun injectDependency(){

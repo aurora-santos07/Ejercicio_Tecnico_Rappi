@@ -5,5 +5,5 @@ import com.example.ejerciciotcnicorappi.movies.data.MoviesRepository
 
 class GetUpcomingMoviesUseCase (private  val repository: MoviesRepository){
 
-    fun getUpcomingMoviesList() = repository.getUpcomingMoviesList(BuildConfig.API_KEY_TMDB, "es-MX")
+    fun getUpcomingMoviesList() = repository.getUpcomingMoviesList(BuildConfig.API_KEY_TMDB, DEFAULT_LANGUAGE)
 }

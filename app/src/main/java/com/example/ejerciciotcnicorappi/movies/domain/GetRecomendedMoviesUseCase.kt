@@ -6,5 +6,5 @@ import com.example.ejerciciotcnicorappi.movies.data.MoviesRepository
 class GetRecomendedMoviesUseCase(private val repository: MoviesRepository) {
 
     fun getRecomendedMoviesUseCase(movieId: Int) =
-        repository.getRecomendedMoviesList(movieId, BuildConfig.API_KEY_TMDB, "es-MX")
+        repository.getRecomendedMoviesList(movieId, BuildConfig.API_KEY_TMDB, DEFAULT_LANGUAGE)
 }
