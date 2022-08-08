@@ -46,4 +46,8 @@ class MoviesModule {
     @Provides
     fun provideDiscoverUseCase(moviesRepository: MoviesRepository) =
         GetDiscoverMoviesUseCase(moviesRepository)
+
+    @Provides
+    fun provideVideosUseCase(moviesRepository: MoviesRepository) =
+        GetMovieVideosUseCase(moviesRepository)
 }

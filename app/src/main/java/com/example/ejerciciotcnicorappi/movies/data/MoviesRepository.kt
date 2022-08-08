@@ -16,4 +16,7 @@ class MoviesRepository (private val remoteDataSource: MoviesRemoteDataSource) {
 
     fun getMovieDetail(movieId: Int, apiKey: String, language: String) =
         remoteDataSource.getMovieDetail(movieId, apiKey, language)
+
+    fun getMovieVideos(movieId: Int, apiKey: String, language: String) =
+        remoteDataSource.getMovieVideos(movieId, apiKey, language)
 }

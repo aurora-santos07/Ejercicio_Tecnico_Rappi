@@ -5,6 +5,7 @@ import com.example.ejerciciotcnicorappi.movies.data.remote.ApiMethods.MOVIE
 import com.example.ejerciciotcnicorappi.movies.data.remote.ApiMethods.RECOMENDATIONS
 import com.example.ejerciciotcnicorappi.movies.data.remote.ApiMethods.TOP_RATED
 import com.example.ejerciciotcnicorappi.movies.data.remote.ApiMethods.UPCOMING
+import com.example.ejerciciotcnicorappi.movies.data.remote.ApiMethods.VIDEOS
 import com.example.ejerciciotcnicorappi.movies.data.remote.ApiPath.MOVIE_ID
 
 object EndPointApi {
@@ -13,6 +14,7 @@ object EndPointApi {
     const val RECOMENDED_LIST = "$MOVIE{$MOVIE_ID}/$RECOMENDATIONS"
     const val DISCOVER_LIST = "$DISCOVER$MOVIE"
     const val MOVIE_DETAIL = "$MOVIE{$MOVIE_ID}"
+    const val MOVIE_VIDEOS = "$MOVIE{$MOVIE_ID}/$VIDEOS"
 }
 
 object ApiMethods{
@@ -21,6 +23,7 @@ object ApiMethods{
     const val TOP_RATED = "top_rated"
     const val RECOMENDATIONS = "recommendations"
     const val DISCOVER = "discover/"
+    const val VIDEOS = "videos"
 }
 
 object ApiPath {

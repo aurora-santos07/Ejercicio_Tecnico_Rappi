@@ -32,4 +32,9 @@ interface MoviesRetrofitService {
                   @Query(ApiPath.API_KEY) apiKey: String,
                   @Query(ApiPath.LANGUAGE) language: String) : Single<MovieDetailResponse>
 
+    @GET(EndPointApi.MOVIE_VIDEOS)
+    fun getVideos(@Path(ApiPath.MOVIE_ID) movieId: Int,
+                  @Query(ApiPath.API_KEY) apiKey: String,
+                  @Query(ApiPath.LANGUAGE) language: String) : Single<MoviesVideoResponse>
+
 }

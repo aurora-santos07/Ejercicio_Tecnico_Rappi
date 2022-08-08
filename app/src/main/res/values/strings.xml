@@ -8,4 +8,5 @@
     <string name="movie_plot">Sinopsis</string>
     <string name="language_recommended">En español</string>
     <string name="year_recommended">Lanzadas en 2001</string>
+    <string name="without_trailer">No se encuentra disponible el trailer de esta película</string>
 </resources>

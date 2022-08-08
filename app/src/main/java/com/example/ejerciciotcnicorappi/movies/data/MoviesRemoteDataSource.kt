@@ -18,4 +18,7 @@ class MoviesRemoteDataSource (private val moviesRetrofitService: MoviesRetrofitS
 
     fun getMovieDetail(movieId: Int, apiKey: String, language: String) =
         moviesRetrofitService.getDetail(movieId, apiKey, language)
+
+    fun getMovieVideos(movieId: Int, apiKey: String, language: String) =
+        moviesRetrofitService.getVideos(movieId, apiKey, language)
 }
