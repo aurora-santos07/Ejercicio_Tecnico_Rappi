@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class MovieDetailResponse (
     @SerializedName("adult" ) var adult : Boolean? = null,
     @SerializedName("backdrop_path" ) var backdropPath: String?= null,
-    @SerializedName("belongs_to_collection" ) var belongsToCollection : String?= null,
+    @SerializedName("belongs_to_collection" ) var belongsToCollection : BelongsToCollection?= null,
     @SerializedName("budget") var budget: Int? = null,
     @SerializedName("genres") var genres: ArrayList<Genres> = arrayListOf(),
     @SerializedName("homepage") var homepage: String?= null,
@@ -51,4 +51,14 @@ data class SpokenLanguages (
     @SerializedName("english_name" ) var englishName : String? = null,
     @SerializedName("iso_639_1") var iso6391 : String? = null,
     @SerializedName("name" ) var name: String? = null
+)
+
+
+
+data class BelongsToCollection (
+    @SerializedName("id") var id : Int? = null,
+    @SerializedName("name") var name : String? = null,
+    @SerializedName("poster_path") var posterPath : String? = null,
+    @SerializedName("backdrop_path") var backdropPath : String? = null
+
 )

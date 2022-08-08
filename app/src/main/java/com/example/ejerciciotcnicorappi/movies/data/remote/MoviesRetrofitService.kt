@@ -22,6 +22,11 @@ interface MoviesRetrofitService {
                           @Query(ApiPath.API_KEY) apiKey: String,
                           @Query(ApiPath.LANGUAGE) language: String) : Single<MoviesResponse>
 
+    @GET(EndPointApi.DISCOVER_LIST)
+    fun getDiscoverList(@Query(ApiPath.YEAR) year: Int,
+                        @Query(ApiPath.API_KEY) apiKey: String,
+                        @Query(ApiPath.LANGUAGE) language: String) : Single<MoviesResponse>
+
     @GET(EndPointApi.MOVIE_DETAIL)
     fun getDetail(@Path(ApiPath.MOVIE_ID) movieId: Int,
                   @Query(ApiPath.API_KEY) apiKey: String,

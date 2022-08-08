@@ -1,12 +1,15 @@
 package com.example.ejerciciotcnicorappi.movies.view.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.ejerciciotcnicorappi.App
 import com.example.ejerciciotcnicorappi.R
 import com.example.ejerciciotcnicorappi.databinding.LayoutHomeFragmentBinding
@@ -40,6 +43,7 @@ class HomeFragment: Fragment(R.layout.layout_home_fragment) {
         binding = LayoutHomeFragmentBinding.inflate(inflater, container, false)
         homeViewModel.getUpcomingMovies()
         homeViewModel.getTopRatedMovies()
+        homeViewModel.getRecomendedMovies()
         return binding.root
     }
 
@@ -50,8 +54,8 @@ class HomeFragment: Fragment(R.layout.layout_home_fragment) {
     private fun initObservers(){
         homeViewModel = ViewModelProvider(this, viewModelFactory)[HomeViewModel::class.java]
         homeViewModel.upcomingMoviesList.observe(this, Observer { handleUpcomingList(it)})
-        homeViewModel.topRatedMoviesList.observe(this, { handleTopRatedList(it)})
-        homeViewModel.recomendedMoviesList.observe(this, {handleRecomendedList(it)})
+        homeViewModel.topRatedMoviesList.observe(this) { handleTopRatedList(it) }
+        homeViewModel.recomendedMoviesList.observe(this) { handleRecomendedList(it) }
     }
 
     fun handleUpcomingList(stateData: StateData){
@@ -107,26 +111,28 @@ class HomeFragment: Fragment(R.layout.layout_home_fragment) {
 
     fun initUpcomingCarousel(mutableList: MutableList<MovieUI>) = binding.run{
         upcomingCarousel.initRecyclerView()
-        upcomingCarousel.setMoviesList(mutableList, {goToDetail(0)})
+        upcomingCarousel.setMoviesList(mutableList, { it?.let{  goToDetail(it)}})
         upcomingCarousel.setTitle(getString(R.string.upcoming_title))
     }
 
     fun initTopRatedCarousel(mutableList: MutableList<MovieUI>) = binding.run{
         topRatedCarousel.initRecyclerView()
-        topRatedCarousel.setMoviesList(mutableList, {goToDetail(0)})
+        topRatedCarousel.setMoviesList(mutableList, { it?.let{  goToDetail(it)}})
         topRatedCarousel.setTitle(getString(R.string.top_rated_title))
     }
 
     fun initRecomendedCarousel(mutableList: MutableList<MovieUI>) = binding.run {
+
         recomendedCarousel.viewType = MoviessCarousel.TYPE_LAYOUT_GRID
         recomendedCarousel.initRecyclerView()
-        recomendedCarousel.setMoviesList(mutableList, {goToDetail(0)})
-        recomendedCarousel.setTitle(getString(R.string.recommended_title))
+        recomendedCarousel.setMoviesList(mutableList, { it?.let{  goToDetail(it)}})
+        recomendedCarousel.setTitle("")
     }
 
     fun goToDetail(idMovie: Int){
-        //val action = HomeFragmentDirections.actionHomeFragmentToMovieDetailFragment()
-        //view?.findNavController()?.navigate(action)
+        val actions = HomeFragmentDirections.actionHomeFragmentToMovieDetailFragment(idMovie)
+        findNavController().navigate(actions)
+
     }
 
     companion object{

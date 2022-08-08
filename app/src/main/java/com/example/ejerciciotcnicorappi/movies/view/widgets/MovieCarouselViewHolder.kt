@@ -9,8 +9,9 @@ import com.example.ejerciciotcnicorappi.movies.view.models.MovieUI
 class MovieCarouselViewHolder(val binding: LayoutMovieItemBinding):
     RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(movieUI: MovieUI, listener: ((String) -> Unit)?) = binding.run {
+    fun bind(movieUI: MovieUI, listener: ((Int?) -> Unit)?) = binding.run {
         imageView.setImageByUrl("$URL_IMAGES${movieUI.backDrop}")
+        binding.root.setOnClickListener { listener?.invoke(movieUI.idMovieUi) }
     }
 
 }

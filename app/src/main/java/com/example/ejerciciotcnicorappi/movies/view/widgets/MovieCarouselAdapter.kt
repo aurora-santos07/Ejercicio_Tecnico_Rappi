@@ -9,7 +9,7 @@ import com.example.ejerciciotcnicorappi.movies.view.models.MovieUI
 class MovieCarouselAdapter() : RecyclerView.Adapter<MovieCarouselViewHolder>(){
 
     private val moviesList = mutableListOf<MovieUI>()
-    var onItemSelectedListener: ((String) -> Unit)? = null
+    var onItemSelectedListener: ((Int?) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         MovieCarouselViewHolder(LayoutMovieItemBinding.inflate(LayoutInflater.from(parent.context)))

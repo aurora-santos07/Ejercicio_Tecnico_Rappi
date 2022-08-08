@@ -6,14 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.navArgs
 import com.example.ejerciciotcnicorappi.App
 import com.example.ejerciciotcnicorappi.R
 import com.example.ejerciciotcnicorappi.databinding.LayoutMovieDetailFragmentBinding
 import com.example.ejerciciotcnicorappi.movies.view.StateData
-import com.example.ejerciciotcnicorappi.movies.view.extensions.formatStringList
-import com.example.ejerciciotcnicorappi.movies.view.extensions.hide
-import com.example.ejerciciotcnicorappi.movies.view.extensions.show
-import com.example.ejerciciotcnicorappi.movies.view.extensions.splitDate
+import com.example.ejerciciotcnicorappi.movies.view.URL_IMAGES
+import com.example.ejerciciotcnicorappi.movies.view.extensions.*
 import com.example.ejerciciotcnicorappi.movies.view.models.MovieDetailUI
 import com.example.ejerciciotcnicorappi.movies.view.viewModel.MovieDetailViewModel
 import com.google.android.material.snackbar.Snackbar
@@ -26,6 +25,7 @@ class MovieDetailFragment: Fragment(R.layout.layout_movie_detail_fragment) {
 
     lateinit var binding: LayoutMovieDetailFragmentBinding
     var idMovie = 0
+    val args: MovieDetailFragmentArgs by navArgs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +39,7 @@ class MovieDetailFragment: Fragment(R.layout.layout_movie_detail_fragment) {
         savedInstanceState: Bundle?
     ): View? {
         binding = LayoutMovieDetailFragmentBinding.inflate(inflater, container, false)
+        idMovie = args.idMovie
         movieDetailViewModel.getMovieDetail(idMovie)
         return binding.root
     }
@@ -77,6 +78,7 @@ class MovieDetailFragment: Fragment(R.layout.layout_movie_detail_fragment) {
         binding.ratingTextView.text = movieDetailUI.popularity.toString()
         binding.genereTextview.text = movieDetailUI.generes?.formatStringList()
         binding.moviePlot.text = movieDetailUI.overview
+        binding.imageView.setImageByUrl("$URL_IMAGES${movieDetailUI.posterPath}")
     }
 
     companion object {

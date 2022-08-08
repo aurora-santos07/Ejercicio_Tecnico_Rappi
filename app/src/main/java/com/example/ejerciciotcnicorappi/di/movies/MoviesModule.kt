@@ -3,10 +3,7 @@ package com.example.ejerciciotcnicorappi.di.movies
 import com.example.ejerciciotcnicorappi.movies.data.MoviesRemoteDataSource
 import com.example.ejerciciotcnicorappi.movies.data.MoviesRepository
 import com.example.ejerciciotcnicorappi.movies.data.remote.MoviesRetrofitService
-import com.example.ejerciciotcnicorappi.movies.domain.GetMovieDetailUseCase
-import com.example.ejerciciotcnicorappi.movies.domain.GetRecomendedMoviesUseCase
-import com.example.ejerciciotcnicorappi.movies.domain.GetTopRatedMoviesUseCase
-import com.example.ejerciciotcnicorappi.movies.domain.GetUpcomingMoviesUseCase
+import com.example.ejerciciotcnicorappi.movies.domain.*
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
@@ -43,6 +40,10 @@ class MoviesModule {
         GetRecomendedMoviesUseCase(moviesRepository)
 
     @Provides
-    fun provideMovieDetailUserCase(moviesRepository: MoviesRepository) =
+    fun provideMovieDetailUseCase(moviesRepository: MoviesRepository) =
         GetMovieDetailUseCase(moviesRepository)
+
+    @Provides
+    fun provideDiscoverUseCase(moviesRepository: MoviesRepository) =
+        GetDiscoverMoviesUseCase(moviesRepository)
 }

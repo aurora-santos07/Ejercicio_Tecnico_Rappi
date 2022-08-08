@@ -6,4 +6,6 @@
     <string name="recommended_title">Recomendados para ti</string>
     <string name="show_trailer">Ver trailer</string>
     <string name="movie_plot">Sinopsis</string>
+    <string name="language_recommended">En español</string>
+    <string name="year_recommended">Lanzadas en 2001</string>
 </resources>

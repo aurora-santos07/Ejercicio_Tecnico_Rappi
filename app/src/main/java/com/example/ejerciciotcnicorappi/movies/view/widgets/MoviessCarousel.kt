@@ -7,6 +7,7 @@ import android.widget.LinearLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ejerciciotcnicorappi.databinding.LayoutMovieCarouselBinding
+import com.example.ejerciciotcnicorappi.movies.view.extensions.hide
 import com.example.ejerciciotcnicorappi.movies.view.models.MovieUI
 
 class MoviessCarousel @JvmOverloads constructor(
@@ -33,7 +34,7 @@ class MoviessCarousel @JvmOverloads constructor(
 
     }
 
-    fun setMoviesList(moviesList: MutableList<MovieUI>, itemSelectedListener: ((String) -> Unit)){
+    fun setMoviesList(moviesList: MutableList<MovieUI>, itemSelectedListener: ((Int?) -> Unit)){
         moviesList.let {
             if (moviesList.isNotEmpty()){
                 carouselAdapter.setList(moviesList)
@@ -44,7 +45,9 @@ class MoviessCarousel @JvmOverloads constructor(
     }
 
     fun setTitle(titleStr: String){
-        titleStr.let {
+        if(titleStr.isNullOrBlank()) {
+            moviessCarousel.title.hide()
+        }else{
             moviessCarousel.title.text = titleStr
         }
     }

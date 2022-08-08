@@ -14,7 +14,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        tools:srcCompat="@color/white" />
+        tools:srcCompat="@color/white"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/gradient"/>
 
     <TextView
         android:id="@+id/year_textview"
@@ -22,6 +31,7 @@
         android:layout_height="wrap_content"
         android:text="Year"
         android:textSize="@dimen/detail_text_size"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/rating_text_view"
         app:layout_constraintEnd_toStartOf="@id/language_textview"
@@ -31,6 +41,7 @@
         android:id="@+id/language_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:text="Language"
         android:textSize="@dimen/detail_text_size"
         app:layout_constraintStart_toEndOf="@id/year_textview"
@@ -44,7 +55,10 @@
         android:layout_height="wrap_content"
         android:textSize="@dimen/detail_text_size"
         android:text="0.0"
+        android:padding="@dimen/minimum"
+        android:textColor="@color/white"
         android:drawableLeft="@drawable/ic_star"
+        android:background="@android:color/holo_orange_light"
         android:layout_marginTop="@dimen/margin_small"
         app:layout_constraintStart_toEndOf="@id/language_textview"
         app:layout_constraintTop_toBottomOf="@id/title_textview"
@@ -57,6 +71,7 @@
         android:layout_marginTop="@dimen/margin_small"
         android:text="title"
         android:textSize="@dimen/title_detail_text_size"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@id/rating_text_view"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -67,6 +82,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_small"
         android:text="Genere"
+        android:textColor="@color/white"
         android:textSize="@dimen/detail_text_size"
         app:layout_constraintTop_toBottomOf="@id/rating_text_view"
         app:layout_constraintEnd_toEndOf="parent"
@@ -80,6 +96,7 @@
         android:textSize="@dimen/carousel_title_text_size"
         android:text="@string/show_trailer"
         android:textStyle="bold"
+        android:background="@drawable/button_selector"
         app:layout_constraintTop_toBottomOf="@id/genere_textview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
@@ -92,21 +109,32 @@
         android:text="@string/movie_plot"
         android:textStyle="bold"
         android:textSize="@dimen/description_detail_text_size"
+        android:textColor="@color/white"
         app:layout_constraintTop_toBottomOf="@+id/trailer_button"
         app:layout_constraintStart_toStartOf="parent"/>
 
-    <TextView
-        android:id="@+id/movie_plot"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Plot"
-        android:isScrollContainer="true"
-        android:textSize="@dimen/description_detail_text_size"
-        android:layout_margin="@dimen/margin_medium"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/movie_plot_title"/>
+        app:layout_constraintTop_toBottomOf="@id/movie_plot_title">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/movie_plot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Plot"
+                android:textColor="@color/white"
+                android:textSize="@dimen/description_detail_text_size"
+                android:layout_margin="@dimen/margin_medium"/>
+        </LinearLayout>
+    </ScrollView>
 
     <ProgressBar
         android:id="@+id/progressBar"

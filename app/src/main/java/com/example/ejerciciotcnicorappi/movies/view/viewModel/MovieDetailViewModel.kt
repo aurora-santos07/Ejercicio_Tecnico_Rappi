@@ -40,6 +40,7 @@ class MovieDetailViewModel @Inject constructor(
 
     private fun getMovieDetailError(throwable: Throwable){
         _movieDetail.value = StateData.Error(throwable)
+        throwable.printStackTrace()
     }
 
     private fun detailToMovieDetailUi(detailResponse: MovieDetailResponse): MovieDetailUI = MovieDetailUI(

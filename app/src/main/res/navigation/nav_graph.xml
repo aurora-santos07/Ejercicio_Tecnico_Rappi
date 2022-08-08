@@ -15,5 +15,10 @@
     <fragment
         android:id="@+id/movieDetailFragment"
         android:name="com.example.ejerciciotcnicorappi.movies.view.fragments.MovieDetailFragment"
-        android:label="MovieDetailFragment" />
+        android:label="MovieDetailFragment" >
+        <argument
+            android:name="idMovie"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
 </navigation>

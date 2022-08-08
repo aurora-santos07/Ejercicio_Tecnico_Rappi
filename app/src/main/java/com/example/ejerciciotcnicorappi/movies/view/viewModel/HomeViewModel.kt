@@ -4,8 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.ejerciciotcnicorappi.movies.data.MoviesResponse
-import com.example.ejerciciotcnicorappi.movies.data.Results
-import com.example.ejerciciotcnicorappi.movies.domain.GetRecomendedMoviesUseCase
+import com.example.ejerciciotcnicorappi.movies.domain.GetDiscoverMoviesUseCase
 import com.example.ejerciciotcnicorappi.movies.domain.GetTopRatedMoviesUseCase
 import com.example.ejerciciotcnicorappi.movies.domain.GetUpcomingMoviesUseCase
 import com.example.ejerciciotcnicorappi.movies.view.StateData
@@ -18,7 +17,7 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(
     private val getUpcomingMoviesUseCase: GetUpcomingMoviesUseCase,
     private val getTopRatedMoviesUseCase: GetTopRatedMoviesUseCase,
-    private val getRecomendedMoviesUseCase: GetRecomendedMoviesUseCase): ViewModel(){
+    private val getDiscoverMoviesUseCase: GetDiscoverMoviesUseCase): ViewModel(){
 
     val compositeDisposable by lazy { CompositeDisposable() }
 
@@ -54,7 +53,6 @@ class HomeViewModel @Inject constructor(
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
             .map { mapResponseToMovieUI(it) }
-            .doOnSuccess { it[0].idMovieUi?.let {getRecomendedMovies(it)} }
             .subscribe( {
                 getTopRatedListSuccess(it)
             },
@@ -65,8 +63,8 @@ class HomeViewModel @Inject constructor(
         compositeDisposable.add(composite)
     }
 
-    fun getRecomendedMovies(movieID: Int){
-            val composite = getRecomendedMoviesUseCase.getRecomendedMoviesUseCase(movieID)
+    fun getRecomendedMovies(){
+            val composite = getDiscoverMoviesUseCase.getDiscoverMoviesListUseCase()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .map { mapResponseToMovieUI(it) }
