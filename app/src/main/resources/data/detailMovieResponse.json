@@ -1,0 +1,77 @@
+{
+  "adult": false,
+  "backdrop_path": "/nmGWzTLMXy9x7mKd8NKPLmHtWGa.jpg",
+  "belongs_to_collection": {
+    "id": 544669,
+    "name": "Minions  - Colección",
+    "poster_path": "/yG4ZgrIinuQJGuFQfXZc1fB2UHN.jpg",
+    "backdrop_path": "/62Qe28oi9PaK3P2ljDYUDTGAyST.jpg"
+  },
+  "budget": 85000000,
+  "genres": [
+    {
+      "id": 10751,
+      "name": "Familia"
+    },
+    {
+      "id": 16,
+      "name": "Animación"
+    },
+    {
+      "id": 12,
+      "name": "Aventura"
+    },
+    {
+      "id": 35,
+      "name": "Comedia"
+    },
+    {
+      "id": 14,
+      "name": "Fantasía"
+    }
+  ],
+  "homepage": "",
+  "id": 438148,
+  "imdb_id": "tt5113044",
+  "original_language": "en",
+  "original_title": "Minions: The Rise of Gru",
+  "overview": "Mucho antes de convertirse en un genio del mal, Gru no era más que un niño de 12 años en plenos años 70 tratando de conquistar el mundo desde el sótano de su casa de un barrio residencial cualquiera. Y no le iba demasiado bien. Pero cuando Gru se cruza en su camino con Kevin, Stuart, Bob, y Otto —un nuevo Minion con aparato en los dientes y desesperado por sentirse aceptado—, esta inesperada familia unirá fuerzas para construir su primera guarida, diseñar sus primeras armas y llevar a cabo sus primeras misiones.",
+  "popularity": 5730.974,
+  "poster_path": "/zBk0guZ6NI2aHclb4sbrQdrrnOC.jpg",
+  "production_companies": [
+    {
+      "id": 33,
+      "logo_path": "/8lvHyhjr8oUKOOy2dKXoALWKdp0.png",
+      "name": "Universal Pictures",
+      "origin_country": "US"
+    },
+    {
+      "id": 6704,
+      "logo_path": "/acf3yqGq8Bm9smHwkQGRDVO5CM5.png",
+      "name": "Illumination Entertainment",
+      "origin_country": "US"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "US",
+      "name": "United States of America"
+    }
+  ],
+  "release_date": "2022-06-29",
+  "revenue": 718000000,
+  "runtime": 87,
+  "spoken_languages": [
+    {
+      "english_name": "English",
+      "iso_639_1": "en",
+      "name": "English"
+    }
+  ],
+  "status": "Released",
+  "tagline": "Prepárate",
+  "title": "Minions: Nace un villano",
+  "video": false,
+  "vote_average": 7.769,
+  "vote_count": 1118
+}

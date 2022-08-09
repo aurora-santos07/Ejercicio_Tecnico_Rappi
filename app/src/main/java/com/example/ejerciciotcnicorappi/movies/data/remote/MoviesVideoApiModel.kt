@@ -4,10 +4,10 @@ import com.google.gson.annotations.SerializedName
 
 data class MoviesVideoResponse(
     @SerializedName("id") var id: Int? = null,
-    @SerializedName("results" ) var results : ArrayList<Results> = arrayListOf()
+    @SerializedName("results" ) var results : ArrayList<VideoResults> = arrayListOf()
 ) 
 
-data class Results (
+data class VideoResults (
     @SerializedName("iso_639_1") var iso6391 : String?= null,
     @SerializedName("iso_3166_1" ) var iso31661: String?= null,
     @SerializedName("name" ) var name: String?= null,
