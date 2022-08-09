@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Ejercicio Técnico Rappi</string>
+    <string name="app_name">eMovie</string>
     <string name="generic_error">Ups! Ocurrió un error, intenta de nuevo.</string>
     <string name="upcoming_title">Próximos estrenos</string>
     <string name="top_rated_title">Tendencia</string>

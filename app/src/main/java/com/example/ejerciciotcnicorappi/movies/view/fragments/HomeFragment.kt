@@ -1,11 +1,11 @@
 package com.example.ejerciciotcnicorappi.movies.view.fragments
 
+import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
+import androidx.core.content.ContextCompat.getColor
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -41,6 +41,7 @@ class HomeFragment: Fragment(R.layout.layout_home_fragment) {
         savedInstanceState: Bundle?
     ): View? {
         binding = LayoutHomeFragmentBinding.inflate(inflater, container, false)
+        setupToolbar()
         homeViewModel.getUpcomingMovies()
         homeViewModel.getTopRatedMovies()
         homeViewModel.getRecomendedMovies()
@@ -133,6 +134,15 @@ class HomeFragment: Fragment(R.layout.layout_home_fragment) {
         val actions = HomeFragmentDirections.actionHomeFragmentToMovieDetailFragment(idMovie)
         findNavController().navigate(actions)
 
+    }
+
+    private fun setupToolbar(){
+        binding.myToolbar.title = getString(R.string.app_name)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            context?.let { binding.myToolbar.setTitleTextColor(getColor(it, R.color.white) )}
+        }else{
+            binding.myToolbar.setTitleTextColor(resources.getColor(R.color.white))
+        }
     }
 
     companion object{
