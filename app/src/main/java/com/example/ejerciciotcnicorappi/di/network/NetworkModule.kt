@@ -1,10 +1,14 @@
 package com.example.ejerciciotcnicorappi.di.network
 
+import android.app.Application
+import android.content.Context
 import com.example.ejerciciotcnicorappi.BuildConfig
+import com.example.ejerciciotcnicorappi.movies.view.extensions.isConnected
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
+import okhttp3.Cache
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -28,7 +32,17 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideOkHttpClientBuilder() = OkHttpClient.Builder()
+    fun provideOkHttpClientBuilder(context: Context, cache: Cache) = OkHttpClient.Builder()
+        .cache(cache)
+        .addInterceptor {
+            var request = it.request()
+            request = if (context.isConnected) request.newBuilder()
+                .header("Cache-Control", "public, max-age=" + 5).build()
+            else request.newBuilder()
+                .header("Cache-Control", "public, only-if-cached, max-stale=" + 60 * 60 * 24 * 7)
+                .build()
+            it.proceed(request)
+        }
         .readTimeout(30, TimeUnit.SECONDS)
         .connectTimeout(30, TimeUnit.SECONDS)
         .writeTimeout(30, TimeUnit.SECONDS)
@@ -42,4 +56,11 @@ class NetworkModule {
     @Singleton
     fun provideRetrofit(retrofitBuilder: Retrofit.Builder, okHttpClient: OkHttpClient) =
         retrofitBuilder.baseUrl(BuildConfig.BASE_URL).client(okHttpClient).build()
+
+    @Provides
+    @Singleton
+    fun provideCache(context: Context): Cache{
+        val size = (5 * 1024 * 1024).toLong()
+        return Cache(context.cacheDir, size)
+    }
 }

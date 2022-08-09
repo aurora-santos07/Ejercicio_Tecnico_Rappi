@@ -3,10 +3,7 @@ package com.example.ejerciciotcnicorappi.movies.view
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.ejerciciotcnicorappi.App
-import com.example.ejerciciotcnicorappi.R
 import com.example.ejerciciotcnicorappi.databinding.ActivityMainBinding
-import com.example.ejerciciotcnicorappi.movies.view.extensions.inTransaction
-import com.example.ejerciciotcnicorappi.movies.view.fragments.HomeFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,7 +20,4 @@ class MainActivity : AppCompatActivity() {
     private fun injectDependency(){
         App.instance.component.inject(this)
     }
-
-
-
 }
