@@ -9,6 +9,6 @@ This repository contains an Android project that consumes a list of uncoming mov
   Debe ser fácil de leer, las capas de modelo y vista deben ser fácilmente diferenciables y debe ser fácil de probar
 
 3. Detalla cómo harías todo aquello que no hayas llegado a completar.
-  Para el funcionamiento offline de la aplicación haría uso de Room para almacenar las respuestas de los servicios que se consumen para mostrar los listados de las películas
-  Si al tratar de cargar estas listas no se contara con conexión a internet se consultaría la base, al contar con conexión se actualizaríala información y al consultar los detalles
-  de las películas y obtener los links de los trailers se almacenarían para ser visualizados en caso de no tener el dispositivo con acceso a internet.
+  Agregaría los unit test del repository, viewmodels y usecases
+  Cambiaría la caché de retrofit por Room para almacenar los datos de los servicios y consultando los servicios para actualizar esta información cada vez que se 
+  entre a la aplicación y se cuente con conexión a internet, en todo momento se mostraría la información de la base de datos
